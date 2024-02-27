@@ -1,4 +1,4 @@
-package week_2.BoxingGame;
+package week_2.boxingGame;
 
 public class Fighter {
     String name;

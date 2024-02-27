@@ -1,4 +1,4 @@
-package week_2.SalaryCalculator;
+package week_2.salaryCalculator;
 
 public class Employee {
     String name;

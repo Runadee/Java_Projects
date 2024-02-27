@@ -1,4 +1,4 @@
-package week_2.StudentGradingSystem;
+package week_2.studentGradingSystem;
 
 public class Course {
     Teacher teacher;
