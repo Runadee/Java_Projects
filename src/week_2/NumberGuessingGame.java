@@ -11,6 +11,8 @@ public class NumberGuessingGame {
 
         Scanner input = new Scanner(System.in);
         int right = 0;
+        int[] wrong = new int[5];
+
         while (right < 5) {
             System.out.println("Please enter your guess number : ");
             int selected = input.nextInt();
@@ -29,9 +31,11 @@ public class NumberGuessingGame {
                 } else {
                     System.out.println(selected + " is smaller than secret number.");
                 }
+
+                wrong[right++] = selected;
+                System.out.println("Your remaining right : " + (5 - right));
             }
-            right++;
         }
-        System.out.println(number);
+        System.out.println("The secret number is : " + number);
     }
 }
