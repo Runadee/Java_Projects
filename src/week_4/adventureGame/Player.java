@@ -56,10 +56,11 @@ public class Player {
         this.characterName = characterName;
     }
 
-    void selectCharacter() {
+    public void selectCharacter() {
 
         GameCharacter[] characterList = {new Samurai(), new Archer(), new Knight()};
-        System.out.println("----- Characters List ----- ");
+        System.out.println();
+        System.out.println("-------- Characters List -------- ");
 
         for (GameCharacter gameCharacter : characterList) {
             System.out.println("ID:" + gameCharacter.getId() +
@@ -68,7 +69,9 @@ public class Player {
                     ", Health:" + gameCharacter.getHealth() +
                     ", Money:" + gameCharacter.getMoney());
         }
+        System.out.println("-------------------------------");
         System.out.print("Enter a character id : ");
+        System.out.println();
 
 
         int selectedCharacter = input.nextInt();
@@ -88,6 +91,7 @@ public class Player {
                 "  Health: " + this.getHealth() +
                 "  Money : " + this.getMoney());
     }
+
 
     public void initialPlayer(GameCharacter gameCharacter) {
         this.setCharacterName(gameCharacter.getName());
