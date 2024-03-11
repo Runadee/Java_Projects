@@ -22,6 +22,7 @@ public class Game {
 
         Location location = null;
         while (true) {
+            player.printInfo();
             System.out.println();
             System.out.println("--------------------------------------");
             System.out.println("Locations : \n 1-SafeHouse \n 2-Store");
