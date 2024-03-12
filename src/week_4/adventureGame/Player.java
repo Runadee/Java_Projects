@@ -6,6 +6,7 @@ public class Player {
     private Inventory inventory;
     private int damage;
     private int health;
+    private int originalHealth;
     private int money;
     private String name;
     private String characterName;
@@ -28,6 +29,14 @@ public class Player {
 
     public int getDamage() {
         return damage + this.getInventory().getWeapon().getDamage();
+    }
+
+    public int getOriginalHealth() {
+        return originalHealth;
+    }
+
+    public void setOriginalHealth(int originalHealth) {
+        this.originalHealth = originalHealth;
     }
 
     public void setDamage(int damage) {
@@ -107,6 +116,7 @@ public class Player {
         this.setCharacterName(gameCharacter.getName());
         this.setDamage(gameCharacter.getDamage());
         this.setHealth(gameCharacter.getHealth());
+        this.setOriginalHealth(gameCharacter.getHealth());
         this.setMoney(gameCharacter.getMoney());
     }
 
@@ -117,6 +127,10 @@ public class Player {
                 ", Damage : " + this.getDamage() +
                 ", Health : " + this.getHealth() +
                 ", Money : " + this.getMoney());
+    }
+
+    public void claimReward(String reward) {
+        getInventory().addItem(reward);
     }
 
 

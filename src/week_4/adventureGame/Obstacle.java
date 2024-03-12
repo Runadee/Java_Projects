@@ -5,12 +5,32 @@ public class Obstacle {
     private int id;
     private int damage;
     private int health;
+    private int originalHealth;
+    private int award;
 
-    public Obstacle(String name, int id, int damage, int health) {
+    public Obstacle(String name, int id, int damage, int health, int award) {
         this.name = name;
         this.id = id;
         this.damage = damage;
         this.health = health;
+        this.award = award;
+        this.originalHealth = health;
+    }
+
+    public int getOriginalHealth() {
+        return originalHealth;
+    }
+
+    public void setOriginalHealth(int originalHealth) {
+        this.originalHealth = originalHealth;
+    }
+
+    public int getAward() {
+        return award;
+    }
+
+    public void setAward(int award) {
+        this.award = award;
     }
 
     public String getName() {
@@ -38,6 +58,9 @@ public class Obstacle {
     }
 
     public int getHealth() {
+        if (health < 0) {
+            health = 0;
+        }
         return health;
     }
 
