@@ -6,26 +6,38 @@ public abstract class BattleLocation extends Location {
     private Obstacle obstacle;
     private String award;
     private int maxObstacleAmount;
-    private boolean cleared;
+
 
     public BattleLocation(Player player, String name, Obstacle obstacle, String award, int maxObstacleAmount) {
         super(player, name);
         this.obstacle = obstacle;
         this.award = award;
         this.maxObstacleAmount = maxObstacleAmount;
-        this.cleared = false;
+
     }
 
 
     @Override
     public boolean onLocation() {
 
-        if (cleared) {
-            System.out.println("You have already cleared this location and claimed the reward.");
+        if (this.getName().equalsIgnoreCase("Cave") && this.getPlayer().getInventory().getFood() == 1) {
+            System.out.println("You completed this section");
+            return true;
+        }
+
+        if (this.getName().equalsIgnoreCase("Forest") && this.getPlayer().getInventory().getFirewood() == 1) {
+            System.out.println("You completed this section");
+            return true;
+        }
+
+        if (this.getName().equalsIgnoreCase("River") && this.getPlayer().getInventory().getWater() == 1) {
+            System.out.println("You completed this section");
             return true;
         }
 
         int obstacleNumber = this.randomObstacleNumber();
+
+
         System.out.println("Now you're here : " + this.getName());
         System.out.println("Be aware ! " + obstacleNumber + " " + this.getObstacle().getName() + " lives here !");
         System.out.println("<F>ight or <R>un away from here !");
@@ -35,17 +47,27 @@ public abstract class BattleLocation extends Location {
             if (combat(obstacleNumber)) {
                 System.out.println(this.getName() + "defeated all of the monsters");
                 System.out.println("You gained the award ");
-                this.getPlayer().claimReward(award);
-                cleared = true;
-                return true;
             }
+
+            
+        }
+        if (this.award.equalsIgnoreCase("Food")) {
+
+            this.getPlayer().getInventory().setFood(1);
+        }
+        if (this.award.equalsIgnoreCase("Firewood")) {
+
+            this.getPlayer().getInventory().setFirewood(1);
+        }
+        if (this.award.equalsIgnoreCase("Water")) {
+
+            this.getPlayer().getInventory().setWater(1);
         }
 
         if (this.getPlayer().getHealth() <= 0) {
             System.out.println("You died !");
             return false;
         }
-
         return true;
     }
 
@@ -59,32 +81,38 @@ public abstract class BattleLocation extends Location {
                 String selectCase = input.nextLine();
                 if (selectCase.equalsIgnoreCase("F")) {
 
-                    System.out.println("You did damage ! Great .");
-                    System.out.println();
-                    this.getObstacle().setHealth(this.getObstacle().getHealth() - this.getPlayer().getDamage());
+                    int randomDamage = (int) (Math.random() * 10);
 
-                    afterHit();
+                    if (randomDamage >= 5) {
+                        System.out.println("You did damage ! Great .");
+                        System.out.println();
+                        this.getObstacle().setHealth(this.getObstacle().getHealth() - this.getPlayer().getDamage());
 
-                    if (this.getObstacle().getHealth() > 0) {
-                        System.out.println();
-                        System.out.println("Monster hit you ! You got damage.");
-                        System.out.println();
-                        int obstacleDamage = this.getObstacle().getDamage() - this.getPlayer().getInventory().getArmor().getPrevention();
-                        if (obstacleDamage < 0) {
-                            obstacleDamage = 0;
+                        afterHit();
+                    } else {
+                        if (this.getObstacle().getHealth() > 0) {
+                            System.out.println();
+                            System.out.println("Monster hit you ! You got damage.");
+                            System.out.println();
+                            int obstacleDamage = this.getObstacle().getDamage() - this.getPlayer().getInventory().getArmor().getPrevention();
+                            if (obstacleDamage < 0) {
+                                obstacleDamage = 0;
+                            }
+                            this.getPlayer().setHealth(this.getPlayer().getHealth() - obstacleDamage);
+                        } else {
+                            return false;
                         }
-                        this.getPlayer().setHealth(this.getPlayer().getHealth() - obstacleDamage);
                     }
-                } else {
-                    return false;
                 }
+
+
             }
             if (this.getObstacle().getHealth() < this.getPlayer().getHealth()) {
                 System.out.println("You defeated all of the monsters ! ");
                 System.out.println("You " + this.getObstacle().getAward() + " money gained ! ");
                 this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getObstacle().getAward());
                 System.out.println("Your total money : " + this.getPlayer().getMoney());
-               
+
 
             }
         }

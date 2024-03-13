@@ -6,24 +6,41 @@ import java.util.List;
 public class Inventory {
     private Weapon weapon;
     private Armor armor;
-    private List<String> items;
+    private int Food;
+    private int Firewood;
+    private int Water;
 
     public Inventory() {
         this.weapon = new Weapon("Punch", -1, 0, 0);
         this.armor = new Armor("Armor", -1, 0, 0);
-        this.items = new ArrayList<>();
+        this.Food = 0;
+        this.Firewood = 0;
+        this.Water = 0;
+
     }
 
-    public void addItem(String item) {
-        items.add(item);
+    public int getFood() {
+        return Food;
     }
 
-    public List<String> getItems() {
-        return items;
+    public void setFood(int food) {
+        Food = food;
     }
 
-    public void setItems(List<String> items) {
-        this.items = items;
+    public int getFirewood() {
+        return Firewood;
+    }
+
+    public void setFirewood(int firewood) {
+        Firewood = firewood;
+    }
+
+    public int getWater() {
+        return Water;
+    }
+
+    public void setWater(int water) {
+        Water = water;
     }
 
     public Armor getArmor() {

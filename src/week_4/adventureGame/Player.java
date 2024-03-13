@@ -126,11 +126,11 @@ public class Player {
                 ", Prevention : " + this.getInventory().getArmor().getPrevention() +
                 ", Damage : " + this.getDamage() +
                 ", Health : " + this.getHealth() +
-                ", Money : " + this.getMoney());
-    }
-
-    public void claimReward(String reward) {
-        getInventory().addItem(reward);
+                ", Money : " + this.getMoney() +
+                "\n Cave's award : " + this.getInventory().getFood() +
+                "\n Forest's award : " + this.getInventory().getFirewood() +
+                "\n River's award :" + this.getInventory().getWater()
+        );
     }
 
 
