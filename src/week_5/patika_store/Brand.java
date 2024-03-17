@@ -2,12 +2,14 @@ package week_5.patika_store;
 
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class Brand {
-    int id;
-    String name;
+    private int id;
+    private String name;
+
 
     public Brand(int id, String name) {
         this.id = id;
@@ -31,16 +33,5 @@ public class Brand {
         this.name = name;
     }
 
-    public void createBrands() {
-        ArrayList<String> brandList = new ArrayList<>();
-        brandList.add("Samsung");
-        brandList.add("Lenovo");
-        brandList.add("Apple");
-        brandList.add("Huawei");
-        brandList.add("Casper");
-        brandList.add("Asus");
-        brandList.add("HP");
-        brandList.add("Xiaomi");
-        brandList.add("Monster");
-    }
+
 }
