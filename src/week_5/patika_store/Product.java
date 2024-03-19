@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Product {
     private int id;
     private int price;
-    private int discount;
+    private double discount;
     private int stock;
     private String name;
     private String brand;
@@ -13,7 +13,7 @@ public class Product {
     private int inch;
     private int ram;
 
-    public Product(int id, int price, int discount, int stock, String name, String brand, int memory, int inch, int ram) {
+    public Product(int id, int price, double discount, int stock, String name, String brand, int memory, int inch, int ram) {
         this.id = id;
         this.price = price;
         this.discount = discount;
@@ -25,10 +25,6 @@ public class Product {
         this.ram = ram;
     }
 
-    public void NoteBookList() {
-        
-
-    }
 
     public int getId() {
         return id;
@@ -47,7 +43,7 @@ public class Product {
     }
 
     public int getDiscount() {
-        return discount;
+        return (int) discount;
     }
 
     public void setDiscount(int discount) {

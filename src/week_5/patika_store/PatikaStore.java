@@ -1,6 +1,6 @@
 package week_5.patika_store;
 
-import javax.xml.namespace.QName;
+
 import java.util.Scanner;
 
 public class PatikaStore {
@@ -23,6 +23,14 @@ public class PatikaStore {
                 System.out.println("Çıkış Yaptınız ");
                 break;
             case 1:
+                System.out.println("Notebooks");
+                break;
+            case 2:
+                System.out.println("Cep Telefonları");
+                break;
+            case 3:
+                System.out.println("Markalar");
+                System.out.println(brand.printBrands());
 
         }
     }

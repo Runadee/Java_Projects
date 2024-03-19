@@ -32,12 +32,13 @@ public class Brand {
 
     }
 
-    public void printBrands() {
+    public boolean printBrands() {
         Collections.sort(brands);
 
         for (String brand : brands) {
             System.out.println(brand);
         }
+        return false;
     }
 
     public int getId() {
