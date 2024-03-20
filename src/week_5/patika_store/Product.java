@@ -10,10 +10,10 @@ public class Product {
     private String name;
     private String brand;
     private int memory;
-    private int inch;
+    private double inch;
     private int ram;
 
-    public Product(int id, int price, double discount, int stock, String name, String brand, int memory, int inch, int ram) {
+    public Product(int id, int price, double discount, int stock, String name, String brand, int memory, double inch, int ram) {
         this.id = id;
         this.price = price;
         this.discount = discount;
@@ -83,7 +83,7 @@ public class Product {
     }
 
     public int getInch() {
-        return inch;
+        return (int) inch;
     }
 
     public void setInch(int inch) {
