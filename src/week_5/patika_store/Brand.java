@@ -2,43 +2,47 @@ package week_5.patika_store;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
+import java.util.TreeSet;
 
-public class Brand {
+public class Brand implements Comparable<Brand> {
     private int id;
     private String name;
-    private static ArrayList<String> brands = new ArrayList<>();
+    private static int idCounter = 1;
+    private Scanner input = new Scanner(System.in);
+    private static TreeSet<Brand> brandList = new TreeSet<>();
 
-    public Brand(int id, String name) {
-        this.id = id;
+    public Brand(String name) {
+        this.id = idCounter;
         this.name = name;
-    }
-
-    static {
-
-        brands.add("Samsung");
-        brands.add("Lenovo");
-        brands.add("Apple");
-        brands.add("Huawei");
-        brands.add("Casper");
-        brands.add("Asus");
-        brands.add("HP");
-        brands.add("Xiaomi");
-        brands.add("Monster");
-
-
     }
 
     public Brand() {
 
     }
 
-    public boolean printBrands() {
-        Collections.sort(brands);
+    static {
+        System.out.println(" --- Brand List ---");
+        brandList.add(new Brand("Samsung"));
+        brandList.add(new Brand("Lenovo"));
+        brandList.add(new Brand("Apple"));
+        brandList.add(new Brand("Huawei"));
+        brandList.add(new Brand("Casper"));
+        brandList.add(new Brand("Asus"));
+        brandList.add(new Brand("Hp"));
+        brandList.add(new Brand("Xiaomi"));
+        brandList.add(new Brand("Monster"));
+    }
 
-        for (String brand : brands) {
-            System.out.println(brand);
+    @Override
+    public int compareTo(Brand object) {
+        return this.name.compareTo(object.getName());
+    }
+
+    public void printBrand() {
+        for (Brand brand : brandList) {
+            System.out.println("- " + brand.getName());
         }
-        return false;
     }
 
     public int getId() {

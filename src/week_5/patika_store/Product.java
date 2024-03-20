@@ -1,6 +1,5 @@
 package week_5.patika_store;
 
-import java.util.ArrayList;
 
 public class Product {
     private int id;

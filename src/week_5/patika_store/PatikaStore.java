@@ -11,7 +11,7 @@ public class PatikaStore {
 
 
     public void showMenu() {
-        
+
         while (isMenu) {
             System.out.println("Patika Store ürün yönetim paneli !");
             System.out.println("1 - Notebook işlemleri");
@@ -25,6 +25,7 @@ public class PatikaStore {
             switch (choice) {
                 case 0:
                     System.out.println("Çıkış Yaptınız ");
+                    isMenu = false;
                     break;
                 case 1:
                     System.out.println("Notebooks");
@@ -34,8 +35,10 @@ public class PatikaStore {
                     break;
                 case 3:
                     Brand brand = new Brand();
-                    System.out.println("Markalar");
-                    System.out.println(brand.printBrands());
+                    brand.printBrand();
+                    break;
+                default:
+                    System.out.println("Invalid option , please try again.");
 
             }
 
