@@ -28,7 +28,8 @@ public class PatikaStore {
                     isMenu = false;
                     break;
                 case 1:
-                    System.out.println("Notebooks");
+                    NoteBook noteBook = new NoteBook();
+
                     break;
                 case 2:
                     System.out.println("Cep Telefonları");
