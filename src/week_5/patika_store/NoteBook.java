@@ -3,15 +3,18 @@ package week_5.patika_store;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+// Notebook class extending Product and implementing Operation interface
 public class NoteBook extends Product implements Operation {
 
     private static final ArrayList<NoteBook> notebooks = new ArrayList<>();
     private static final Scanner input = new Scanner(System.in);
 
+    // Parameterized constructor to initialize notebook properties
     public NoteBook(int id, int price, double discount, int stock, String name, String brand, int memory, double inch, int ram) {
         super(id, price, discount, stock, name, brand, memory, inch, ram);
     }
 
+    // Default constructor
     public NoteBook() {
         super();
     }
@@ -119,6 +122,7 @@ public class NoteBook extends Product implements Operation {
 
     }
 
+    // Method to find a notebook by its ID
     private NoteBook findNotebookByID(int id) {
         for (NoteBook noteBook : notebooks) {
             if (noteBook.getId() == id) {
@@ -128,19 +132,55 @@ public class NoteBook extends Product implements Operation {
         return null;
     }
 
+    // Override method to delete a notebook from the list
     @Override
     public void deleteProduct() {
+        System.out.println("Enter the ID of the product you want to delete:");
+        int deleteSelection = input.nextInt();
+
+        NoteBook notebookToDelete = findNotebookByID(deleteSelection);
+
+        if (notebookToDelete != null) {
+            notebooks.remove(notebookToDelete);
+            System.out.println("Product deleted.");
+        } else {
+            System.out.println("Product ID not found . Please try again.");
+        }
+
 
     }
 
+    // Override method to filter notebooks by brand
     @Override
     public void filterByProductBrand() {
+        System.out.println("Enter the brand name to filter:");
+        String filterBrand = input.nextLine();
+
+        System.out.println("Filter Results");
+        for (NoteBook noteBook : notebooks) {
+            if (noteBook.getBrand().equalsIgnoreCase(filterBrand)) {
+                System.out.printf("%-8s %-22s %-12s %-16s %-10s %-6s %-6s%n",
+                        noteBook.getId(), noteBook.getName(), noteBook.getPrice(), noteBook.getBrand(),
+                        noteBook.getMemory(), noteBook.getInch(), noteBook.getRam());
+            }
+        }
 
     }
 
+    // Override method to filter notebooks by ID
     @Override
     public void filterByProductID() {
+        System.out.println("Enter the ID to filter:");
+        int selectedProductId = input.nextInt();
 
+        System.out.println("Filter Results ");
+        for (NoteBook noteBook : notebooks) {
+            if (noteBook.getId() == selectedProductId) {
+                System.out.printf("%-8s %-22s %-12s %-16s %-10s %-6s %-6s%n",
+                        noteBook.getId(), noteBook.getName(), noteBook.getPrice(), noteBook.getBrand(),
+                        noteBook.getMemory(), noteBook.getInch(), noteBook.getRam());
+            }
+        }
     }
 
 
