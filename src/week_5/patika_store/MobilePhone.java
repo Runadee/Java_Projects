@@ -28,6 +28,8 @@ public class MobilePhone extends Product implements Operation {
 
     }
 
+
+
     @Override
     public void runMenu() {
         MobilePhone phoneManager = new MobilePhone();
@@ -69,8 +71,16 @@ public class MobilePhone extends Product implements Operation {
         }
     }
 
+    // Override method to display the list of mobile phones
     @Override
     public void showProductList() {
+        System.out.printf("%-8s %-22s %-12s %-16s %-10s %-6s %-6s %-6s %-6s %-6s %-6s%n",
+                "ID", "Product Name", "Price", "Discount", "Stock", "Brand", "Storage", "Screen", "RAM", "Battery", "Color");
+
+        for (MobilePhone phone : phones) {
+            System.out.printf("%-8s %-22s %-12s %-16s %-10s %-6s %-6s %-6s %-6s %-6s %-6s%n",
+                   phone.getId(),phone.getName(),phone.getPrice(),phone.getDiscount(),phone.getStock(),phone.getBrand(),
+                    phone.getMemory(),phone.getInch(),phone.getRam(),phone.getBatteryPower(),phone.getColor());
 
 
     }
@@ -95,3 +105,19 @@ public class MobilePhone extends Product implements Operation {
 
     }
 }
+
+    public int getBatteryPower() {
+        return batteryPower;
+    }
+
+    public void setBatteryPower(int batteryPower) {
+        this.batteryPower = batteryPower;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
