@@ -8,7 +8,7 @@ public class NoteBook extends Product implements Operation {
     private static final ArrayList<NoteBook> notebooks = new ArrayList<>();
     private static final Scanner input = new Scanner(System.in);
 
-    public NoteBook(int id, int price, double discount, int stock, String name, String brand, int memory, int inch, int ram) {
+    public NoteBook(int id, int price, double discount, int stock, String name, String brand, int memory, double inch, int ram) {
         super(id, price, discount, stock, name, brand, memory, inch, ram);
     }
 
@@ -17,7 +17,7 @@ public class NoteBook extends Product implements Operation {
     }
 
     static {
-        notebooks.add(new NoteBook(1, 25000, 0.25, 50, "M1", "Apple", 512, 13, 8));
+        notebooks.add(new NoteBook(1, 25000, 0.25, 50, "M1", "Apple", 512, 13.0, 8));
         notebooks.add(new NoteBook(2, 20000, 0.10, 75, "MateBook", "Huawei", 512, 14, 8));
         notebooks.add(new NoteBook(3, 20000, 0.10, 25, "Nirvana", "Casper", 512, 14, 8));
     }
@@ -80,7 +80,52 @@ public class NoteBook extends Product implements Operation {
 
     @Override
     public void addProduct() {
+        System.out.println("Please enter a new ID:");
+        int newNotebookID = input.nextInt();
+        input.nextLine();
 
+        if (findNotebookByID(newNotebookID) == null) {
+            System.out.println("Please enter the product name : ");
+            String newNotebookName = input.nextLine();
+
+            System.out.println("Please enter the brand:");
+            String newNotebookBrand = input.nextLine();
+
+            System.out.println("Please enter the price:");
+            int newNotebookPrice = input.nextInt();
+
+            System.out.println("Please enter the discount rate:");
+            double newNotebookDiscount = input.nextDouble();
+
+            System.out.println("Please enter the stock information:");
+            int newNotebookStock = input.nextInt();
+
+            System.out.println("Please enter the storage size:");
+            int newNotebookMemory = input.nextInt();
+
+            System.out.println("Please enter the screen size:");
+            double newNotebookScreenSize = input.nextDouble();
+
+            System.out.println("Please enter the RAM (in GB):");
+            int newNotebookRam = input.nextInt();
+
+            notebooks.add(new NoteBook(newNotebookID, newNotebookPrice, newNotebookDiscount, newNotebookStock,
+                    newNotebookName, newNotebookBrand, newNotebookMemory, newNotebookScreenSize, newNotebookRam));
+
+
+        } else {
+            System.out.println("This product has already been added. Please try again.");
+        }
+
+    }
+
+    private NoteBook findNotebookByID(int id) {
+        for (NoteBook noteBook : notebooks) {
+            if (noteBook.getId() == id) {
+                return noteBook;
+            }
+        }
+        return null;
     }
 
     @Override
@@ -97,4 +142,6 @@ public class NoteBook extends Product implements Operation {
     public void filterByProductID() {
 
     }
+
+
 }

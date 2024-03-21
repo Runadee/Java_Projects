@@ -24,7 +24,7 @@ public class Product {
         this.ram = ram;
     }
 
-    public Product(){
+    public Product() {
 
     }
 
@@ -85,11 +85,11 @@ public class Product {
         this.memory = memory;
     }
 
-    public int getInch() {
-        return (int) inch;
+    public double getInch() {
+        return inch;
     }
 
-    public void setInch(int inch) {
+    public void setInch(double inch) {
         this.inch = inch;
     }
 
