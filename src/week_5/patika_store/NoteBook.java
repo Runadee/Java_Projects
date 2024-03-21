@@ -39,6 +39,7 @@ public class NoteBook extends Product implements Operation {
             System.out.println("5- Filter by Brand");
             System.out.println("0- Main Menu");
 
+            System.out.println("Enter your selection :");
             int choice = input.nextInt();
 
             switch (choice) {
