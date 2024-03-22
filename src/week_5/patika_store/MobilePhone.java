@@ -1,7 +1,7 @@
 package week_5.patika_store;
 
 import java.util.ArrayList;
-import java.util.Map;
+
 import java.util.Scanner;
 
 public class MobilePhone extends Product implements Operation {
@@ -22,12 +22,20 @@ public class MobilePhone extends Product implements Operation {
 
     }
 
+    public int getBatteryPower() {
+        return batteryPower;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+
     public void initializeMobilePhoneList() {
         phones.add(new MobilePhone(100, 30000, 0.1, 10, "Galaxy S23", "Samsung", 128, 6.1, 6, 4000, "Black"));
         phones.add(new MobilePhone(200, 25000, 0.2, 15, "iPhone 12", "Apple", 64, 6.1, 6, 4000, "Blue"));
 
     }
-
 
 
     @Override
@@ -72,6 +80,8 @@ public class MobilePhone extends Product implements Operation {
     }
 
     // Override method to display the list of mobile phones
+
+
     @Override
     public void showProductList() {
         System.out.printf("%-8s %-22s %-12s %-16s %-10s %-6s %-6s %-6s %-6s %-6s %-6s%n",
@@ -79,10 +89,9 @@ public class MobilePhone extends Product implements Operation {
 
         for (MobilePhone phone : phones) {
             System.out.printf("%-8s %-22s %-12s %-16s %-10s %-6s %-6s %-6s %-6s %-6s %-6s%n",
-                   phone.getId(),phone.getName(),phone.getPrice(),phone.getDiscount(),phone.getStock(),phone.getBrand(),
-                    phone.getMemory(),phone.getInch(),phone.getRam(),phone.getBatteryPower(),phone.getColor());
-
-
+                    phone.getId(), phone.getName(), phone.getPrice(), phone.getDiscount(), phone.getStock(), phone.getBrand(),
+                    phone.getMemory(), phone.getInch(), phone.getRam(), phone.getBatteryPower(), phone.getColor());
+        }
     }
 
     @Override
@@ -104,20 +113,6 @@ public class MobilePhone extends Product implements Operation {
     public void filterByProductID() {
 
     }
+
+
 }
-
-    public int getBatteryPower() {
-        return batteryPower;
-    }
-
-    public void setBatteryPower(int batteryPower) {
-        this.batteryPower = batteryPower;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }

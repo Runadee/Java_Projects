@@ -80,6 +80,7 @@ public class NoteBook extends Product implements Operation {
                     noteBook.getMemory(), noteBook.getInch(), noteBook.getRam(), noteBook.getStock(),
                     noteBook.getDiscount());
         }
+        return null;
     }
 
     @Override
