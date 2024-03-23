@@ -13,12 +13,14 @@ public class PatikaStore {
     public void showMenu() {
 
         while (isMenu) {
-            System.out.println("Patika Store ürün yönetim paneli !");
-            System.out.println("1 - Notebook işlemleri");
-            System.out.println("2 - Cep telefonu işlemleri");
-            System.out.println("3 - Marka listele ");
-            System.out.println("0 - Çıkış ");
-            System.out.println("Seçiminiz : ");
+            System.out.println();
+            System.out.println("--PatikaStore Product Management Panel--");
+            System.out.println("1 - Notebook Operations");
+            System.out.println("2 - Mobile Phone Operations");
+            System.out.println("3 - List Brands");
+            System.out.println("0 - Exit");
+            System.out.println();
+            System.out.print("Your choice: ");
             int choice = input.nextInt();
             input.nextLine();
 
@@ -29,10 +31,11 @@ public class PatikaStore {
                     break;
                 case 1:
                     NoteBook noteBook = new NoteBook();
-
+                    noteBook.runMenu();
                     break;
                 case 2:
-                    System.out.println("Cep Telefonları");
+                    MobilePhone mobilePhone = new MobilePhone();
+                    mobilePhone.runMenu();
                     break;
                 case 3:
                     Brand brand = new Brand();
