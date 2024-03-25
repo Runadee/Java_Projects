@@ -116,9 +116,6 @@ public class NoteBook extends Product implements Operation {
             notebooks.add(new NoteBook(newNotebookID, newNotebookPrice, newNotebookDiscount, newNotebookStock,
                     newNotebookName, newNotebookBrand, newNotebookMemory, newNotebookScreenSize, newNotebookRam));
             System.out.println("New Notebook added.");
-            System.out.println("----------------------");
-
-
         } else {
             System.out.println("This product has already been added. Please try again.");
         }

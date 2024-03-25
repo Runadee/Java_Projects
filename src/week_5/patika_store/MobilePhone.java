@@ -80,8 +80,6 @@ public class MobilePhone extends Product implements Operation {
     }
 
     // Override method to display the list of mobile phones
-
-
     @Override
     public void showProductList() {
         System.out.printf("%-8s %-22s %-12s %-16s %-10s %-6s %-6s %-6s %-6s %-6s %-6s%n",
@@ -139,7 +137,6 @@ public class MobilePhone extends Product implements Operation {
                     newPhoneBrand, newPhoneStorage, newPhoneScreenSize, newPhoneRam, newPhoneBatterySize, newPhoneColor));
 
             System.out.println("New mobile phone added.");
-            System.out.println("----------------------");
 
         } else {
             System.out.println("This product has already been added. Please try again.");
