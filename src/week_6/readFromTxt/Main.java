@@ -1,4 +1,4 @@
-package week_6;
+package week_6.readFromTxt;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
